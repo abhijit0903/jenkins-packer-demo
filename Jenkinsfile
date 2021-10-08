@@ -6,7 +6,7 @@ pipeline {
   stages {
     stage("git") {
       steps {
-        sh "terraform --version"
+        sh 'terraform --version'
       }
     }
   }
