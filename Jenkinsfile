@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage("git") {
       steps {
-        echo "Hello Guys"
+        sh "terraform --version"
       }
     }
   }
