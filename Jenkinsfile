@@ -4,7 +4,12 @@ pipeline {
     terraform 'terraform12'
     }
   stages {
-    stage("git") {
+    stage("packer") {
+      steps {
+        sh 'packer --version'
+      }
+    }
+    stage("terraform") {
       steps {
         sh 'terraform --version'
       }
