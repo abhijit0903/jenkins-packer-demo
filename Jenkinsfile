@@ -1,0 +1,10 @@
+pipeline {
+  agent any
+  stages {
+    stage("git") {
+      steps {
+        echo "Hello Guys"
+      }
+    }
+  }
+}  
