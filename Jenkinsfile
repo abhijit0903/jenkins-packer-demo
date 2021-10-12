@@ -18,7 +18,7 @@ pipeline {
     }    
     stage("Validate terraform plan") {
       steps {
-        cd 'cd terraform'
+        sh 'cd terraform'
         sh 'terraform init -input=false'
         sh 'terraform plan -input=false -out tfplan'
       }
