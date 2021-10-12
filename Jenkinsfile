@@ -6,16 +6,6 @@ pipeline {
     }
 
   stages {
-    stage("Validate packer template") {
-      steps {
-        sh '/usr/local/bin/packer validate packer/imageBuilder.json'
-      }
-    }
-    stage("Create AWS AMI") {
-      steps {
-        sh '/usr/local/bin/packer build packer/imageBuilder.json'
-      }
-    }    
     stage("Validate terraform plan") {
       steps {
         sh 'cd terraform'
