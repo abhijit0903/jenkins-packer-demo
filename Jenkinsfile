@@ -26,6 +26,11 @@ pipeline {
         sh 'echo "terraform plan -input=false -out tfplan --var-file terraform/env-vars/terraform.tfvars"'
       }
     }
+    stage('Approval to apply') {
+            steps {
+                input('Do you want to proceed?')
+            }
+        }
     stage("Run terraform for EC2 Instance") {
       steps {
         sh 'echo "terraform apply -input=false tfplan"'
