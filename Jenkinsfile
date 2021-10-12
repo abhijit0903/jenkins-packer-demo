@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage("Validate packer template") {
       steps {
-        sh '/usr/local/bin/packer validate imageBuilder.json'
+        sh '/usr/local/bin/packer validate packer/imageBuilder.json'
       }
     }
     stage("Create AWS AMI") {
