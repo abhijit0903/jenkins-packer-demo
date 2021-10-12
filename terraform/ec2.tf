@@ -14,7 +14,7 @@ data "aws_ami" "packerDemo" {
        name   = "virtualization-type"
        values = ["hvm"]
  }
-     owners = ["****"] # Canonical
+     owners = ["207563224361"]
  }
 
 resource "aws_instance" "packerDemo" {
