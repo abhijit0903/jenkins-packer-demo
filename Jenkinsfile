@@ -8,10 +8,11 @@ pipeline {
   stages {
     stage("Validate terraform plan") {
       steps {
-        sh 'cd terraform'
+        dir("${env.WORKSPACE}/terraform") {
         sh 'ls -lrt'
         sh 'terraform init -input=false'
         sh 'terraform plan -input=false -out tfplan'
+        }
       }
     }
     stage('Approval to apply') {
@@ -21,8 +22,9 @@ pipeline {
         }
     stage("Run terraform for EC2 Instance") {
       steps {
-        sh 'cd terraform'
+        dir("${env.WORKSPACE}/terraform") {
         sh 'terraform apply -input=false tfplan'
+        }
       }
     }
   }
