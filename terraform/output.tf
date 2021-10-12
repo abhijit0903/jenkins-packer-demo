@@ -1,1 +1,3 @@
-abcd
+output "instance_id" {
+  value = aws_instance.packerDemo.id
+}
