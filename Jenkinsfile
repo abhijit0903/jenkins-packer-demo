@@ -1,10 +1,6 @@
 pipeline {
   agent any
-
-  parameters {
-      booleanParam(name: 'autoApprove', defaultValue: false, description: 'Automatically run apply after plan')
-  }
-
+  
   tools {
     terraform 'terraform12'
     }
@@ -12,15 +8,15 @@ pipeline {
   stages {
     stage("Validate packer template") {
       steps {
-        sh 'echo "/usr/local/bin/packer validate imageBuilder.json"'
+        sh '/usr/local/bin/packer validate imageBuilder.json'
       }
     }
-    stage("Create packer template") {
+    stage("Create AWS AMI") {
       steps {
         sh 'echo "/usr/local/bin/validate packer/imageBuilder.json"'
       }
     }    
-    stage("Validate terraform plan up EC2 Instance") {
+    stage("Validate terraform plan") {
       steps {
         sh 'echo "terraform init -input=false"'
         sh 'echo "terraform plan -input=false -out tfplan --var-file terraform/env-vars/terraform.tfvars"'
