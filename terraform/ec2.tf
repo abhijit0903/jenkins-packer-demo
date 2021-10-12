@@ -17,7 +17,7 @@ data "aws_ami" "packerDemo" {
      owners = ["****"] # Canonical
  }
 
-resource "aws_instance" "example" {
+resource "aws_instance" "packerDemo" {
      ami = data.aws_ami.packerDemo.id
      instance_type = "t2.micro"
      availability_zone = var.availability_zone
