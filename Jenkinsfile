@@ -6,7 +6,7 @@ pipeline {
   stages {
     stage("packer") {
       steps {
-        sh 'packer --version'
+        sh '/usr/local/bin/packer --version'
       }
     }
     stage("terraform") {
